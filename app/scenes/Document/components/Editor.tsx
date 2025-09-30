@@ -205,11 +205,18 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
         placeholder={t("Untitled")}
       />
       {shareId ? (
-        document.updatedAt ? (
-          <SharedMeta type="tertiary">
-            {t("Last updated")} <Time dateTime={document.updatedAt} addSuffix />
-          </SharedMeta>
-        ) : null
+        <>
+          {document.title?.toLowerCase().includes("tortus") ? (
+            <SharedMeta type="tertiary">
+              <em>Reference test: hover over [1] to preview a source.</em>
+            </SharedMeta>
+          ) : null}
+          {document.updatedAt ? (
+            <SharedMeta type="tertiary">
+              {t("Last updated")} <Time dateTime={document.updatedAt} addSuffix />
+            </SharedMeta>
+          ) : null}
+        </>
       ) : (
         <DocumentMeta
           document={document}
