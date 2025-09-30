@@ -1,4 +1,5 @@
 import markdownit, { PluginSimple } from "markdown-it";
+import citation from "@shared/editor/rules/citation";
 import { Schema } from "prosemirror-model";
 
 type Options = {
@@ -37,5 +38,7 @@ export default function makeRules({
   }
 
   plugins.forEach((plugin) => markdownIt.use(plugin));
+  // Always enable citation parsing so that [^n] markers work
+  markdownIt.use(citation);
   return markdownIt;
 }

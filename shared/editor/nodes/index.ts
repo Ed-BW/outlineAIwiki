@@ -42,6 +42,7 @@ import TableHeader from "./TableHeader";
 import TableRow from "./TableRow";
 import Text from "./Text";
 import Video from "./Video";
+import CitationRef from "./CitationRef";
 
 type Nodes = (typeof Node | typeof Mark | typeof Extension)[];
 
@@ -54,6 +55,7 @@ export const basicExtensions: Nodes = [
   Paragraph,
   Emoji,
   Text,
+  CitationRef,
   SimpleImage,
   Code,
   Bold,
@@ -90,7 +92,7 @@ export const tableExtensions: Nodes = [
  * editors that need advanced formatting.
  */
 export const richExtensions: Nodes = [
-  ...basicExtensions.filter((n) => n !== SimpleImage),
+  ...basicExtensions.filter((n) => n !== SimpleImage && n !== CitationRef),
   Image,
   CodeBlock,
   CodeFence,
@@ -109,6 +111,7 @@ export const richExtensions: Nodes = [
   // Container type nodes should be last so that key handlers are registered for content inside
   // the container nodes first.
   ...listExtensions,
+  CitationRef,
   ...tableExtensions,
 ];
 
