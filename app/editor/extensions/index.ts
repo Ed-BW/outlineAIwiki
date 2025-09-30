@@ -11,6 +11,7 @@ import MentionMenuExtension from "~/editor/extensions/MentionMenu";
 import PasteHandler from "~/editor/extensions/PasteHandler";
 import PreventTab from "~/editor/extensions/PreventTab";
 import SmartText from "~/editor/extensions/SmartText";
+import CitationAutoconvert from "~/editor/extensions/CitationAutoconvert";
 
 type Nodes = (typeof Node | typeof Mark | typeof Extension)[];
 
@@ -24,6 +25,7 @@ export const withUIExtensions = (nodes: Nodes) => [
   MentionMenuExtension,
   FindAndReplaceExtension,
   HoverPreviewsExtension,
+  CitationAutoconvert,
   // Order these default key handlers last
   PreventTab,
   Keys,

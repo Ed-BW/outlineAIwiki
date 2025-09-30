@@ -45,6 +45,14 @@ function TitleDocumentMeta({ to, document, revision, ...rest }: Props) {
 
   return (
     <Meta document={document} revision={revision} to={to} replace {...rest}>
+      {document.title?.toLowerCase().includes("tortus") ? (
+        <>
+          <Separator />
+          <span>
+            <em>Reference test: hover over [1] to preview a source.</em>
+          </span>
+        </>
+      ) : null}
       {commentingEnabled && can.comment && (
         <>
           <Separator />
