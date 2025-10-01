@@ -43,6 +43,7 @@ import TableRow from "./TableRow";
 import Text from "./Text";
 import Video from "./Video";
 import CitationRef from "./CitationRef";
+import HTMLBlock from "./HTMLBlock";
 // import Infobox from "./Infobox"; // Temporarily disabled - incomplete implementation
 
 type Nodes = (typeof Node | typeof Mark | typeof Extension)[];
@@ -114,6 +115,7 @@ export const richExtensions: Nodes = [
   // the container nodes first.
   ...listExtensions,
   CitationRef,
+  HTMLBlock,
   ...tableExtensions,
 ];
 
