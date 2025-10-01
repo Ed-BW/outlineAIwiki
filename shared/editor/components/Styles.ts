@@ -1835,6 +1835,88 @@ table {
   border-right: ${EditorStyleHelper.padding}px solid ${props.theme.background};
 }
 
+// Infobox styles - Wikipedia-style floating box
+.${EditorStyleHelper.infobox} {
+  float: right;
+  clear: right;
+  width: 280px;
+  margin: 0.5em 0 1em 1.5em;
+  background: ${props.theme.backgroundSecondary};
+  border: 1px solid ${props.theme.divider};
+  border-radius: 4px;
+  font-size: 90%;
+  line-height: 1.4em;
+
+  &[data-align="left"] {
+    float: left;
+    clear: left;
+    margin: 0.5em 1.5em 1em 0;
+  }
+
+  &[data-align="center"] {
+    float: none;
+    clear: both;
+    margin: 0.5em auto 1em;
+  }
+
+  .${EditorStyleHelper.infoboxTable} {
+    padding: 8px;
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    border: none;
+    background: transparent;
+
+    tr {
+      border: none;
+    }
+
+    td, th {
+      border: none;
+      padding: 4px 6px;
+      font-size: 13px;
+      vertical-align: top;
+      min-width: auto;
+
+      &:first-child {
+        font-weight: 600;
+        width: 40%;
+        color: ${props.theme.textSecondary};
+      }
+    }
+
+    th {
+      background: transparent;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 6px;
+      border-bottom: 1px solid ${props.theme.divider};
+    }
+  }
+
+  // Mobile responsive
+  @media (max-width: 768px) {
+    float: none;
+    width: 100%;
+    margin: 1em 0;
+
+    &[data-align="left"],
+    &[data-align="right"] {
+      float: none;
+      margin: 1em 0;
+    }
+  }
+
+  @media print {
+    float: right;
+    width: 280px;
+    page-break-inside: avoid;
+  }
+}
+
 .block-menu-trigger {
   opacity: 0;
   pointer-events: none;
