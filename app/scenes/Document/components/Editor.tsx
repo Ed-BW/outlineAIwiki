@@ -190,8 +190,8 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
     <Flex auto column>
       {isTortusPage && (
         <>
-          {/* OPTION 1: Hero Banner Style */}
-          <OptionLabel>Option 1: Hero Banner</OptionLabel>
+          {/* OPTION 1: Hero Banner Style - Enhanced */}
+          <OptionLabel>Option 1: Hero Banner (Enhanced)</OptionLabel>
           <HeroBanner>
             <HeroImage
               src="https://via.placeholder.com/400x300?text=TORTUS"
@@ -204,18 +204,33 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
                 <MetaBadge status="live">🟢 Live</MetaBadge>
                 <MetaItem>Founded 2022</MetaItem>
                 <MetaItem>TORTUS Ltd</MetaItem>
+                <MetaItem>Healthcare</MetaItem>
               </HeroMeta>
               <HeroDescription>
-                AI-powered clinical documentation assistant for healthcare
-                professionals. Uses ambient voice technology to automate
-                clinical documentation, allowing providers to focus on patient
-                care.
+                AI-powered clinical documentation assistant using ambient voice
+                technology (O.S.L.E.R.) to automate clinical documentation,
+                allowing healthcare providers to focus on patient care.
               </HeroDescription>
+              <HeroSpecs>
+                <SpecRow>
+                  <SpecLabel>Platform:</SpecLabel>
+                  <SpecValue>O.S.L.E.R.</SpecValue>
+                  <SpecLabel>Access:</SpecLabel>
+                  <SpecValue>Commercial</SpecValue>
+                </SpecRow>
+                <SpecRow>
+                  <SpecLabel>Open Source:</SpecLabel>
+                  <SpecValue>No</SpecValue>
+                  <SpecLabel>Primary Use:</SpecLabel>
+                  <SpecValue>Clinical documentation automation</SpecValue>
+                </SpecRow>
+              </HeroSpecs>
               <HeroLinks>
                 <HeroLinkButton
                   href="https://tortus.ai/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  primary
                 >
                   🌐 Website
                 </HeroLinkButton>
@@ -225,6 +240,13 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
                   rel="noopener noreferrer"
                 >
                   🏥 NHS Innovation
+                </HeroLinkButton>
+                <HeroLinkButton
+                  href="mailto:info@tortus.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  📧 Contact
                 </HeroLinkButton>
               </HeroLinks>
             </HeroContent>
@@ -476,21 +498,61 @@ const HeroDescription = styled.p`
   margin: 0;
 `;
 
+const HeroSpecs = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+  background: ${(props) => props.theme.background};
+  border-radius: 6px;
+  border: 1px solid ${(props) => props.theme.divider};
+`;
+
+const SpecRow = styled.div`
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  gap: 0.5em 1em;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    grid-template-columns: auto 1fr;
+  }
+`;
+
+const SpecLabel = styled.span`
+  font-size: 0.85em;
+  color: ${(props) => props.theme.textTertiary};
+  font-weight: 600;
+`;
+
+const SpecValue = styled.span`
+  font-size: 0.9em;
+  color: ${(props) => props.theme.text};
+
+  @media (max-width: 600px) {
+    margin-bottom: 0.5em;
+  }
+`;
+
 const HeroLinks = styled.div`
   display: flex;
-  gap: 1em;
+  gap: 0.75em;
   margin-top: auto;
   flex-wrap: wrap;
 `;
 
-const HeroLinkButton = styled.a`
+const HeroLinkButton = styled.a<{ primary?: boolean }>`
   padding: 0.7em 1.5em;
-  background: ${(props) => props.theme.primary};
-  color: white;
+  background: ${(props) =>
+    props.primary ? props.theme.primary : props.theme.buttonBackground};
+  color: ${(props) => (props.primary ? "white" : props.theme.buttonText)};
   text-decoration: none;
   border-radius: 6px;
   font-weight: 600;
+  font-size: 0.9em;
   transition: opacity 0.2s;
+  border: 1px solid
+    ${(props) => (props.primary ? "transparent" : props.theme.divider)};
 
   &:hover {
     opacity: 0.9;
