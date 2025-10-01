@@ -1,11 +1,9 @@
 import { InputRule } from "prosemirror-inputrules";
 import { NodeSpec, Node as ProsemirrorNode, NodeType } from "prosemirror-model";
 import { TextSelection } from "prosemirror-state";
-import { columnResizing, tableEditing } from "prosemirror-tables";
 import type Token from "markdown-it/lib/token";
 import { MarkdownSerializerState } from "../lib/markdown/serializer";
 import { createTableInner } from "../commands/table";
-import { FixTablesPlugin } from "../plugins/FixTables";
 import { EditorStyleHelper } from "../styles/EditorStyleHelper";
 import infoboxnew from "../rules/infoboxnew";
 import Node from "./Node";
@@ -95,16 +93,5 @@ export default class InfoboxNew extends Node {
         title: tok.info?.replace(/^infobox\s*/, "") || "Infobox",
       }),
     };
-  }
-
-  get plugins() {
-    return [
-      columnResizing({
-        handleWidth: 5,
-        cellMinWidth: 100,
-      }),
-      tableEditing(),
-      new FixTablesPlugin(),
-    ];
   }
 }
