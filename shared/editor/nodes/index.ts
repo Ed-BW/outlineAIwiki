@@ -43,7 +43,7 @@ import TableRow from "./TableRow";
 import Text from "./Text";
 import Video from "./Video";
 import CitationRef from "./CitationRef";
-import Infobox from "./Infobox";
+// import Infobox from "./Infobox"; // Temporarily disabled - incomplete implementation
 
 type Nodes = (typeof Node | typeof Mark | typeof Extension)[];
 
@@ -86,7 +86,7 @@ export const tableExtensions: Nodes = [
   // Note: Table nodes comes last to ensure the table selection plugin is registered after the
   // plugins for table grips in TableCell and TableHeader.
   Table,
-  Infobox,
+  // Infobox, // Temporarily disabled - incomplete implementation causing server crashes
 ];
 
 /**
