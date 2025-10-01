@@ -185,32 +185,44 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 
   const direction = titleRef.current?.getComputedDirection();
 
-  // Force rebuild: timestamp 2025-10-01-19:00
+  // Force rebuild: timestamp 2025-10-01-19:30
   return (
     <Flex auto column>
       <TestBanner>
-        🧪 TEST: React component modification successful - I can add elements
-        here
+        ✅ TEST: React component modification successful - RED banner now
       </TestBanner>
       {document.title?.toLowerCase().includes("tortus") ? (
-        <div
-          style={{
-            position: "sticky",
-            top: 0,
-            zIndex: 2,
-            width: "100%",
-            background: "rgba(255, 221, 87, 0.35)",
-            color: "#6a5400",
-            border: "1px solid rgba(255, 221, 87, 0.8)",
-            borderRadius: 6,
-            padding: "6px 10px",
-            marginBottom: 8,
-            fontSize: 13,
-            fontWeight: 600,
-          }}
-        >
-          UI demo: Infobox styling enabled; Tortus infobox should float right.
-        </div>
+        <InfoboxContainer>
+          <InfoboxTitle>TORTUS</InfoboxTitle>
+          <InfoboxTable>
+            <tbody>
+              <InfoboxRow>
+                <InfoboxLabel>Type:</InfoboxLabel>
+                <InfoboxValue>Clinical AI Assistant</InfoboxValue>
+              </InfoboxRow>
+              <InfoboxRow>
+                <InfoboxLabel>Developer:</InfoboxLabel>
+                <InfoboxValue>TORTUS Ltd</InfoboxValue>
+              </InfoboxRow>
+              <InfoboxRow>
+                <InfoboxLabel>Status:</InfoboxLabel>
+                <InfoboxValue>🟢 Live</InfoboxValue>
+              </InfoboxRow>
+              <InfoboxRow>
+                <InfoboxLabel>Founded:</InfoboxLabel>
+                <InfoboxValue>2022</InfoboxValue>
+              </InfoboxRow>
+              <InfoboxRow>
+                <InfoboxLabel>Platform:</InfoboxLabel>
+                <InfoboxValue>O.S.L.E.R.</InfoboxValue>
+              </InfoboxRow>
+              <InfoboxRow>
+                <InfoboxLabel>Sector:</InfoboxLabel>
+                <InfoboxValue>Healthcare</InfoboxValue>
+              </InfoboxRow>
+            </tbody>
+          </InfoboxTable>
+        </InfoboxContainer>
       ) : null}
       <DocumentTitle
         ref={titleRef}
@@ -296,7 +308,7 @@ const SharedMeta = styled(Text)`
 `;
 
 const TestBanner = styled.div`
-  background: #4ecdc4;
+  background: #e74c3c;
   color: white;
   padding: 16px;
   text-align: center;
@@ -304,6 +316,66 @@ const TestBanner = styled.div`
   border-radius: 8px;
   margin-bottom: 16px;
   font-size: 16px;
+`;
+
+const InfoboxContainer = styled.div`
+  float: right;
+  clear: right;
+  width: 280px;
+  margin: 0 0 1em 1em;
+  padding: 0;
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  font-size: 88%;
+  line-height: 1.5em;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    float: none;
+    width: 100%;
+    margin: 1em 0;
+  }
+`;
+
+const InfoboxTitle = styled.div`
+  padding: 0.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  background-color: #d0e5f5;
+  border-bottom: 1px solid #a2a9b1;
+`;
+
+const InfoboxTable = styled.table`
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-collapse: collapse;
+`;
+
+const InfoboxRow = styled.tr`
+  vertical-align: top;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #e8e8e8;
+  }
+`;
+
+const InfoboxLabel = styled.td`
+  padding: 0.4em 0.5em;
+  font-weight: 600;
+  text-align: left;
+  width: 35%;
+  color: #333;
+  border: none;
+`;
+
+const InfoboxValue = styled.td`
+  padding: 0.4em 0.5em;
+  text-align: left;
+  border: none;
+  color: #555;
 `;
 
 export default observer(React.forwardRef(DocumentEditor));
