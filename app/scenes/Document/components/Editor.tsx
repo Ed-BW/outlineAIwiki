@@ -185,45 +185,12 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 
   const direction = titleRef.current?.getComputedDirection();
 
-  // Force rebuild: timestamp 2025-10-01-19:30
+  // Force rebuild: timestamp 2025-10-01-20:00
   return (
     <Flex auto column>
       <TestBanner>
         ✅ TEST: React component modification successful - RED banner now
       </TestBanner>
-      {document.title?.toLowerCase().includes("tortus") ? (
-        <InfoboxContainer>
-          <InfoboxTitle>TORTUS</InfoboxTitle>
-          <InfoboxTable>
-            <tbody>
-              <InfoboxRow>
-                <InfoboxLabel>Type:</InfoboxLabel>
-                <InfoboxValue>Clinical AI Assistant</InfoboxValue>
-              </InfoboxRow>
-              <InfoboxRow>
-                <InfoboxLabel>Developer:</InfoboxLabel>
-                <InfoboxValue>TORTUS Ltd</InfoboxValue>
-              </InfoboxRow>
-              <InfoboxRow>
-                <InfoboxLabel>Status:</InfoboxLabel>
-                <InfoboxValue>🟢 Live</InfoboxValue>
-              </InfoboxRow>
-              <InfoboxRow>
-                <InfoboxLabel>Founded:</InfoboxLabel>
-                <InfoboxValue>2022</InfoboxValue>
-              </InfoboxRow>
-              <InfoboxRow>
-                <InfoboxLabel>Platform:</InfoboxLabel>
-                <InfoboxValue>O.S.L.E.R.</InfoboxValue>
-              </InfoboxRow>
-              <InfoboxRow>
-                <InfoboxLabel>Sector:</InfoboxLabel>
-                <InfoboxValue>Healthcare</InfoboxValue>
-              </InfoboxRow>
-            </tbody>
-          </InfoboxTable>
-        </InfoboxContainer>
-      ) : null}
       <DocumentTitle
         ref={titleRef}
         readOnly={readOnly}
@@ -272,6 +239,69 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
           rtl={direction === "rtl"}
         />
       )}
+      {document.title?.toLowerCase().includes("tortus") && (
+        <ContentWrapper>
+          <InfoboxContainer>
+            <InfoboxImage
+              src="https://via.placeholder.com/280x200/4a90e2/ffffff?text=TORTUS"
+              alt="TORTUS"
+            />
+            <InfoboxTitle>TORTUS</InfoboxTitle>
+            <InfoboxTable>
+              <tbody>
+                <InfoboxRow>
+                  <InfoboxLabel>Type</InfoboxLabel>
+                  <InfoboxValue>Clinical AI Assistant</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Developer</InfoboxLabel>
+                  <InfoboxValue>TORTUS Ltd</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Status</InfoboxLabel>
+                  <InfoboxValue>🟢 Live</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Founded</InfoboxLabel>
+                  <InfoboxValue>2022</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>AI Model</InfoboxLabel>
+                  <InfoboxValue>Proprietary LLM</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Platform</InfoboxLabel>
+                  <InfoboxValue>O.S.L.E.R.</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Open Source</InfoboxLabel>
+                  <InfoboxValue>No</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Access</InfoboxLabel>
+                  <InfoboxValue>Commercial</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Sector</InfoboxLabel>
+                  <InfoboxValue>Healthcare</InfoboxValue>
+                </InfoboxRow>
+                <InfoboxRow>
+                  <InfoboxLabel>Website</InfoboxLabel>
+                  <InfoboxValue>
+                    <a
+                      href="https://tortus.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      tortus.ai
+                    </a>
+                  </InfoboxValue>
+                </InfoboxRow>
+              </tbody>
+            </InfoboxTable>
+          </InfoboxContainer>
+        </ContentWrapper>
+      )}
       <EditorComponent
         ref={mergeRefs([ref, handleRefChanged])}
         autoFocus={!!document.title && !props.defaultValue}
@@ -318,28 +348,42 @@ const TestBanner = styled.div`
   font-size: 16px;
 `;
 
+const ContentWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 const InfoboxContainer = styled.div`
-  float: right;
-  clear: right;
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 280px;
   margin: 0 0 1em 1em;
   padding: 0;
   border: 1px solid #a2a9b1;
   background-color: #f8f9fa;
-  font-size: 88%;
+  font-size: 14px;
   line-height: 1.5em;
   box-sizing: border-box;
+  z-index: 10;
 
   @media (max-width: 768px) {
-    float: none;
+    position: static;
     width: 100%;
     margin: 1em 0;
   }
 `;
 
+const InfoboxImage = styled.img`
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #a2a9b1;
+`;
+
 const InfoboxTitle = styled.div`
   padding: 0.5em;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
   background-color: #d0e5f5;
@@ -352,6 +396,7 @@ const InfoboxTable = styled.table`
   border: none;
   background: transparent;
   border-collapse: collapse;
+  font-size: 13px;
 `;
 
 const InfoboxRow = styled.tr`
@@ -363,19 +408,28 @@ const InfoboxRow = styled.tr`
 `;
 
 const InfoboxLabel = styled.td`
-  padding: 0.4em 0.5em;
+  padding: 0.3em 0.5em;
   font-weight: 600;
   text-align: left;
-  width: 35%;
+  width: 40%;
   color: #333;
   border: none;
 `;
 
 const InfoboxValue = styled.td`
-  padding: 0.4em 0.5em;
+  padding: 0.3em 0.5em;
   text-align: left;
   border: none;
   color: #555;
+
+  a {
+    color: #0645ad;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default observer(React.forwardRef(DocumentEditor));
