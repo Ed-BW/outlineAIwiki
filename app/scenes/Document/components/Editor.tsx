@@ -185,6 +185,7 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 
   const direction = titleRef.current?.getComputedDirection();
 
+  // Force rebuild: timestamp 2025-10-01-19:00
   return (
     <Flex auto column>
       <TestBanner>
@@ -192,20 +193,22 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
         here
       </TestBanner>
       {document.title?.toLowerCase().includes("tortus") ? (
-        <div style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 2,
-          width: "100%",
-          background: "rgba(255, 221, 87, 0.35)",
-          color: "#6a5400",
-          border: "1px solid rgba(255, 221, 87, 0.8)",
-          borderRadius: 6,
-          padding: "6px 10px",
-          marginBottom: 8,
-          fontSize: 13,
-          fontWeight: 600,
-        }}>
+        <div
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 2,
+            width: "100%",
+            background: "rgba(255, 221, 87, 0.35)",
+            color: "#6a5400",
+            border: "1px solid rgba(255, 221, 87, 0.8)",
+            borderRadius: 6,
+            padding: "6px 10px",
+            marginBottom: 8,
+            fontSize: 13,
+            fontWeight: 600,
+          }}
+        >
           UI demo: Infobox styling enabled; Tortus infobox should float right.
         </div>
       ) : null}
