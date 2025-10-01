@@ -187,6 +187,10 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 
   return (
     <Flex auto column>
+      <TestBanner>
+        🧪 TEST: React component modification successful - I can add elements
+        here
+      </TestBanner>
       {document.title?.toLowerCase().includes("tortus") ? (
         <div style={{
           position: "sticky",
@@ -231,7 +235,8 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
           ) : null}
           {document.updatedAt ? (
             <SharedMeta type="tertiary">
-              {t("Last updated")} <Time dateTime={document.updatedAt} addSuffix />
+              {t("Last updated")}{" "}
+              <Time dateTime={document.updatedAt} addSuffix />
             </SharedMeta>
           ) : null}
         </>
@@ -285,6 +290,17 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 const SharedMeta = styled(Text)`
   margin: -12px 0 2em 0;
   font-size: 14px;
+`;
+
+const TestBanner = styled.div`
+  background: #4ecdc4;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 16px;
 `;
 
 export default observer(React.forwardRef(DocumentEditor));
