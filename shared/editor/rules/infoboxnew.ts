@@ -1,5 +1,4 @@
-import { PluginSimple } from "markdown-it";
-import type Token from "markdown-it/lib/token";
+import MarkdownIt, { Token } from "markdown-it";
 import container from "markdown-it-container";
 
 /**
@@ -8,8 +7,8 @@ import container from "markdown-it-container";
  *         | Field | Value |
  *         :::
  */
-const infoboxnew: PluginSimple = (md) =>
-  md.use(container, "infobox", {
+export default function infoboxnew(md: MarkdownIt): void {
+  return container(md, "infobox", {
     marker: ":",
     validate: (params: string) => params.trim().match(/^infobox(?:\s+(.+))?$/),
     render: (tokens: Token[], idx: number) => {
@@ -26,5 +25,4 @@ const infoboxnew: PluginSimple = (md) =>
       }
     },
   });
-
-export default infoboxnew;
+}
