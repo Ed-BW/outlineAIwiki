@@ -12,7 +12,7 @@ import { InfoboxView } from "./InfoboxView";
 
 export default class Infobox extends Node {
   get name() {
-    return "infobox";
+    return "container_infobox";
   }
 
   get schema(): NodeSpec {
@@ -53,7 +53,7 @@ export default class Infobox extends Node {
       // Trigger infobox creation with :::infobox
       new InputRule(/^(:::infobox)$/, (state, _, start, end) => {
         const nodes = createTableInner(state, 2, 2);
-        const infoboxNode = state.schema.nodes.infobox.create(
+        const infoboxNode = state.schema.nodes.container_infobox.create(
           { align: "right" },
           nodes[0].content
         );

@@ -45,7 +45,7 @@ import Video from "./Video";
 import CitationRef from "./CitationRef";
 import HTMLBlock from "./HTMLBlock";
 import InfoboxNew from "./InfoboxNew";
-// import Infobox from "./Infobox"; // Temporarily disabled - incomplete implementation
+import Infobox from "./Infobox";
 
 type Nodes = (typeof Node | typeof Mark | typeof Extension)[];
 
@@ -89,7 +89,7 @@ export const tableExtensions: Nodes = [
   // plugins for table grips in TableCell and TableHeader.
   Table,
   InfoboxNew,
-  // Infobox, // Temporarily disabled - incomplete implementation causing server crashes
+  Infobox,
 ];
 
 /**
