@@ -16,7 +16,7 @@ import Node from "./Node";
  */
 export default class InfoboxNew extends Node {
   get name() {
-    return "infobox";
+    return "container_infobox";
   }
 
   get rulePlugins() {
@@ -66,7 +66,7 @@ export default class InfoboxNew extends Node {
         const title = match[1] || "Infobox";
         // Create a 2-column table with 5 rows by default
         const nodes = createTableInner(state, 5, 2);
-        const infoboxNode = state.schema.nodes.infobox.create(
+        const infoboxNode = state.schema.nodes.container_infobox.create(
           { title },
           nodes[0].content
         );
