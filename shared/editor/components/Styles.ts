@@ -2004,6 +2004,59 @@ del[data-operation-index] {
   }
 }
 
+/* Wikipedia-style infobox support */
+.infobox {
+  float: right;
+  clear: right;
+  width: 280px;
+  margin: 0 0 1em 1em;
+  padding: 0;
+  border: 1px solid ${props.theme.divider};
+  background-color: ${props.theme.backgroundSecondary};
+  font-size: 88%;
+  line-height: 1.5em;
+  box-sizing: border-box;
+}
+
+.infobox table {
+  width: 100%;
+  margin: 0;
+  border: none;
+  background: transparent;
+  border-collapse: collapse;
+}
+
+.infobox td {
+  padding: 0.2em 0.5em;
+  border: none;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.infobox table,
+.infobox tbody,
+.infobox tr,
+.infobox td {
+  border: none;
+  background: transparent;
+}
+
+.infobox img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .infobox {
+    float: none;
+    width: 100%;
+    margin: 1em 0;
+    max-width: 100%;
+  }
+}
+
 @media print {
   .placeholder::before,
   .block-menu-trigger,

@@ -1,5 +1,29 @@
 # TORTUS
 
+<div class="infobox">
+
+| TORTUS |
+|--------|
+| ![Screenshot placeholder - Replace with actual screenshot](https://via.placeholder.com/300x200?text=TORTUS+Screenshot) |
+| **Type:** Clinical AI Assistant |
+| **Developer:** TORTUS Ltd |
+| **Status:** 🟢 Live |
+| **Founded:** 2022 |
+| **AI Model:** Proprietary LLM (O.S.L.E.R.) |
+| **Platform:** O.S.L.E.R. |
+| **Open Source:** No |
+| **Access:** Commercial |
+| **Procurement:** NHS Framework, Direct Contact |
+| **Trial:** Contact for pricing |
+| **Primary Use:** Clinical documentation automation |
+| **Sector:** Healthcare |
+| **🔗 Links** |
+| • [Website](https://tortus.ai/) |
+| • [NHS Innovation Profile](https://nhsaccelerator.com/innovations/tortus-ai/) |
+| • [Contact](mailto:info@tortus.ai) |
+
+</div>
+
 **TORTUS** is an artificial intelligence tool designed to automate clinical documentation in healthcare settings. Developed for use at Great Ormond Street Hospital for Children NHS Foundation Trust (GOSH), TORTUS aims to increase face-to-face time between clinicians and patients by automating the drafting of clinic notes and letters.^[1]^
 
 ## Table of Contents
