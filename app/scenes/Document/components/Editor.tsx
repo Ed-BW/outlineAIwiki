@@ -184,9 +184,121 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
   );
 
   const direction = titleRef.current?.getComputedDirection();
+  const isTortusPage = document.title?.toLowerCase().includes("tortus");
 
   return (
     <Flex auto column>
+      {isTortusPage && (
+        <>
+          {/* OPTION 1: Hero Banner Style */}
+          <OptionLabel>Option 1: Hero Banner</OptionLabel>
+          <HeroBanner>
+            <HeroImage
+              src="https://via.placeholder.com/400x300?text=TORTUS"
+              alt="TORTUS"
+            />
+            <HeroContent>
+              <HeroTitle>TORTUS</HeroTitle>
+              <HeroSubtitle>Clinical AI Assistant</HeroSubtitle>
+              <HeroMeta>
+                <MetaBadge status="live">🟢 Live</MetaBadge>
+                <MetaItem>Founded 2022</MetaItem>
+                <MetaItem>TORTUS Ltd</MetaItem>
+              </HeroMeta>
+              <HeroDescription>
+                AI-powered clinical documentation assistant for healthcare
+                professionals. Uses ambient voice technology to automate
+                clinical documentation, allowing providers to focus on patient
+                care.
+              </HeroDescription>
+              <HeroLinks>
+                <HeroLinkButton
+                  href="https://tortus.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🌐 Website
+                </HeroLinkButton>
+                <HeroLinkButton
+                  href="https://nhsaccelerator.com/innovations/tortus-ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🏥 NHS Innovation
+                </HeroLinkButton>
+              </HeroLinks>
+            </HeroContent>
+          </HeroBanner>
+
+          <Spacer />
+
+          {/* OPTION 2: Card Grid Style */}
+          <OptionLabel>Option 2: Card Grid</OptionLabel>
+          <CardGridContainer>
+            <CardGridImage
+              src="https://via.placeholder.com/400x300?text=TORTUS"
+              alt="TORTUS"
+            />
+            <CardGridTitle>TORTUS</CardGridTitle>
+            <CardGridIntro>
+              AI-powered clinical documentation assistant for healthcare
+              professionals. Uses ambient voice technology and generative AI to
+              automate clinical documentation, allowing healthcare providers to
+              focus more on direct patient care.
+            </CardGridIntro>
+            <CardGrid>
+              <Card>
+                <CardIcon>🟢</CardIcon>
+                <CardLabel>Status</CardLabel>
+                <CardValue>Live</CardValue>
+              </Card>
+              <Card>
+                <CardIcon>🏢</CardIcon>
+                <CardLabel>Developer</CardLabel>
+                <CardValue>TORTUS Ltd</CardValue>
+              </Card>
+              <Card>
+                <CardIcon>📅</CardIcon>
+                <CardLabel>Founded</CardLabel>
+                <CardValue>2022</CardValue>
+              </Card>
+              <Card>
+                <CardIcon>🤖</CardIcon>
+                <CardLabel>AI Model</CardLabel>
+                <CardValue>O.S.L.E.R.</CardValue>
+              </Card>
+              <Card>
+                <CardIcon>🔓</CardIcon>
+                <CardLabel>Open Source</CardLabel>
+                <CardValue>No</CardValue>
+              </Card>
+              <Card>
+                <CardIcon>💼</CardIcon>
+                <CardLabel>Access</CardLabel>
+                <CardValue>Commercial</CardValue>
+              </Card>
+            </CardGrid>
+            <CardLinks>
+              <CardLinkButton
+                href="https://tortus.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🌐 Official Website
+              </CardLinkButton>
+              <CardLinkButton
+                href="https://nhsaccelerator.com/innovations/tortus-ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🏥 NHS Innovation Profile
+              </CardLinkButton>
+            </CardLinks>
+          </CardGridContainer>
+
+          <Spacer />
+        </>
+      )}
       <DocumentTitle
         ref={titleRef}
         readOnly={readOnly}
@@ -268,6 +380,241 @@ function DocumentEditor(props: Props, ref: React.RefObject<any>) {
 const SharedMeta = styled(Text)`
   margin: -12px 0 2em 0;
   font-size: 14px;
+`;
+
+// Layout comparison styles
+const OptionLabel = styled.div`
+  background: ${(props) => props.theme.primary};
+  color: white;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 1em;
+  border-radius: 4px;
+`;
+
+const Spacer = styled.div`
+  height: 3em;
+  border-bottom: 2px dashed ${(props) => props.theme.divider};
+  margin: 2em 0;
+`;
+
+// OPTION 1: Hero Banner Styles
+const HeroBanner = styled.div`
+  display: flex;
+  gap: 2em;
+  padding: 2em;
+  background: ${(props) => props.theme.backgroundSecondary};
+  border: 1px solid ${(props) => props.theme.divider};
+  border-radius: 8px;
+  margin-bottom: 2em;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1.5em;
+  }
+`;
+
+const HeroImage = styled.img`
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 200px;
+  }
+`;
+
+const HeroContent = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`;
+
+const HeroTitle = styled.h2`
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+  color: ${(props) => props.theme.text};
+`;
+
+const HeroSubtitle = styled.div`
+  font-size: 1.2em;
+  color: ${(props) => props.theme.textSecondary};
+  margin-top: -0.5em;
+`;
+
+const HeroMeta = styled.div`
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  align-items: center;
+`;
+
+const MetaBadge = styled.span<{ status?: string }>`
+  background: ${(props) =>
+    props.status === "live" ? "#10b981" : props.theme.primary};
+  color: white;
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+`;
+
+const MetaItem = styled.span`
+  color: ${(props) => props.theme.textTertiary};
+  font-size: 0.95em;
+`;
+
+const HeroDescription = styled.p`
+  color: ${(props) => props.theme.text};
+  line-height: 1.6;
+  margin: 0;
+`;
+
+const HeroLinks = styled.div`
+  display: flex;
+  gap: 1em;
+  margin-top: auto;
+  flex-wrap: wrap;
+`;
+
+const HeroLinkButton = styled.a`
+  padding: 0.7em 1.5em;
+  background: ${(props) => props.theme.primary};
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+// OPTION 2: Card Grid Styles
+const CardGridContainer = styled.div`
+  padding: 2em;
+  background: ${(props) => props.theme.background};
+  border: 1px solid ${(props) => props.theme.divider};
+  border-radius: 8px;
+
+  @media (max-width: 768px) {
+    padding: 1.5em;
+  }
+`;
+
+const CardGridImage = styled.img`
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 2em;
+  display: block;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+`;
+
+const CardGridTitle = styled.h2`
+  margin: 0 0 0.5em 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: ${(props) => props.theme.text};
+  text-align: center;
+`;
+
+const CardGridIntro = styled.p`
+  color: ${(props) => props.theme.textSecondary};
+  line-height: 1.6;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2em;
+  font-size: 1.1em;
+`;
+
+const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5em;
+  margin-bottom: 2em;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Card = styled.div`
+  background: ${(props) => props.theme.backgroundSecondary};
+  border: 1px solid ${(props) => props.theme.divider};
+  border-radius: 8px;
+  padding: 1.5em;
+  text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const CardIcon = styled.div`
+  font-size: 2em;
+  margin-bottom: 0.5em;
+`;
+
+const CardLabel = styled.div`
+  font-size: 0.85em;
+  color: ${(props) => props.theme.textTertiary};
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+`;
+
+const CardValue = styled.div`
+  font-size: 1.1em;
+  color: ${(props) => props.theme.text};
+  font-weight: 600;
+`;
+
+const CardLinks = styled.div`
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const CardLinkButton = styled.a`
+  padding: 1em 2em;
+  background: ${(props) => props.theme.primary};
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export default observer(React.forwardRef(DocumentEditor));
