@@ -48,14 +48,6 @@ export class EditorStyleHelper {
   /** Shadow on the left side of the table */
   static readonly tableShadowLeft = "table-shadow-left";
 
-  // Infobox
-
-  /** Infobox wrapper (floating container) */
-  static readonly infobox = "infobox-wrapper";
-
-  /** Infobox table inner wrapper */
-  static readonly infoboxTable = "infobox-table";
-
   // Global
 
   /** Minimum padding around editor */
@@ -63,4 +55,12 @@ export class EditorStyleHelper {
 
   /** Table of contents width */
   static readonly tocWidth = 256;
+
+  // Infobox
+
+  /** Container class for Wikipedia-style infobox */
+  static readonly infobox = "infobox";
+
+  /** Optional inner wrapper to pad table inside infobox */
+  static readonly infoboxTable = "infobox-table";
 }
