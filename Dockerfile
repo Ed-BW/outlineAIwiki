@@ -1,35 +1,47 @@
-ARG APP_PATH=/opt/outline
-ARG BASE_IMAGE=outlinewiki/outline-base
-FROM ${BASE_IMAGE} AS base
+# Build stage
+FROM node:20-slim AS builder
 
-ARG APP_PATH
-WORKDIR $APP_PATH
+WORKDIR /opt/outline
+
+# Copy package files
+COPY package.json yarn.lock ./
+COPY patches ./patches
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy source code
+COPY . .
+
+# Build the application
+RUN yarn build
 
 # ---
+# Runtime stage
 FROM node:20-slim AS runner
 
-LABEL org.opencontainers.image.source="https://github.com/outline/outline"
+LABEL org.opencontainers.image.source="https://github.com/Ed-BW/outlineAIwiki"
 
-ARG APP_PATH
-WORKDIR $APP_PATH
+WORKDIR /opt/outline
 ENV NODE_ENV=production
 
-COPY --from=base $APP_PATH/build ./build
-COPY --from=base $APP_PATH/server ./server
-COPY --from=base $APP_PATH/public ./public
-COPY --from=base $APP_PATH/.sequelizerc ./.sequelizerc
-COPY --from=base $APP_PATH/node_modules ./node_modules
-COPY --from=base $APP_PATH/package.json ./package.json
+# Copy built application from builder
+COPY --from=builder /opt/outline/build ./build
+COPY --from=builder /opt/outline/server ./server
+COPY --from=builder /opt/outline/public ./public
+COPY --from=builder /opt/outline/.sequelizerc ./.sequelizerc
+COPY --from=builder /opt/outline/node_modules ./node_modules
+COPY --from=builder /opt/outline/package.json ./package.json
 
-# Install wget to healthcheck the server
-RUN  apt-get update \
+# Install wget for healthcheck
+RUN apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
 
-# Create a non-root user compatible with Debian and BusyBox based images
+# Create non-root user
 RUN addgroup --gid 1001 nodejs && \
   adduser --uid 1001 --ingroup nodejs nodejs && \
-  chown -R nodejs:nodejs $APP_PATH/build && \
+  chown -R nodejs:nodejs /opt/outline/build && \
   mkdir -p /var/lib/outline && \
   chown -R nodejs:nodejs /var/lib/outline
 
@@ -37,8 +49,6 @@ ENV FILE_STORAGE_LOCAL_ROOT_DIR=/var/lib/outline/data
 RUN mkdir -p "$FILE_STORAGE_LOCAL_ROOT_DIR" && \
   chown -R nodejs:nodejs "$FILE_STORAGE_LOCAL_ROOT_DIR" && \
   chmod 1777 "$FILE_STORAGE_LOCAL_ROOT_DIR"
-
-# VOLUME /var/lib/outline/data - Railway handles volumes
 
 USER nodejs
 
