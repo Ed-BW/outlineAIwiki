@@ -18,7 +18,7 @@ export default function makeRules({
 }: Options) {
   const markdownIt = markdownit("default", {
     breaks: false,
-    html: false,
+    html: true,
     linkify: false,
     ...rules,
   });
