@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { s } from "@shared/styles";
 import Document from "~/models/Document";
 import Flex from "~/components/Flex";
-import Icon from "~/components/Icon";
+import Icon from "@shared/components/Icon";
 
 type Props = {
   document: Document;
