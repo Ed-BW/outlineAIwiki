@@ -52,7 +52,7 @@ RUN mkdir -p "$FILE_STORAGE_LOCAL_ROOT_DIR" && \
 
 USER nodejs
 
-HEALTHCHECK --interval=1m CMD wget -qO- "http://localhost:${PORT:-3000}/_health" | grep -q "OK" || exit 1
+HEALTHCHECK --interval=1m --start-period=30s CMD wget -qO- "http://localhost:${PORT:-3000}/_health" | grep -q "OK" || exit 1
 
 EXPOSE 3000
 CMD ["yarn", "start"]
