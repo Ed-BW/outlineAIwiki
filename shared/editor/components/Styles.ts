@@ -2016,6 +2016,7 @@ del[data-operation-index] {
   font-size: 88%;
   line-height: 1.5em;
   box-sizing: border-box;
+  color: ${props.theme.text};
 }
 
 .infobox table {
@@ -2031,6 +2032,7 @@ del[data-operation-index] {
   border: none;
   vertical-align: top;
   line-height: 1.6;
+  color: ${props.theme.text};
 }
 
 .infobox table,
@@ -2046,6 +2048,21 @@ del[data-operation-index] {
   height: auto;
   display: block;
   margin: 0;
+}
+
+.infobox a {
+  color: ${props.theme.link};
+  text-decoration: none;
+}
+
+.infobox a:hover {
+  text-decoration: underline;
+}
+
+.infobox strong,
+.infobox b {
+  color: ${props.theme.text};
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
