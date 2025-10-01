@@ -57,6 +57,7 @@ import Container from "./Container";
 import Contents from "./Contents";
 import Editor from "./Editor";
 import Header from "./Header";
+import Hero from "./Hero";
 import KeyboardShortcutsButton from "./KeyboardShortcutsButton";
 import { MeasuredContainer } from "./MeasuredContainer";
 import Notices from "./Notices";
@@ -513,7 +514,7 @@ class DocumentScene extends React.Component<Props> {
           column
           auto
         >
-          <PageTitle title={title} favicon={favicon} />
+          <PageTitle title={document.titleWithDefault} favicon={favicon} />
           {(this.isUploading || this.isSaving) && <LoadingIndicator />}
           <Container column>
             {!readOnly && (
@@ -574,6 +575,8 @@ class DocumentScene extends React.Component<Props> {
                       tocPosition={tocPos}
                     >
                       <Notices document={document} readOnly={readOnly} />
+
+                      {!revision && <Hero document={document} />}
 
                       {showContents && (
                         <PrintContentsContainer>
