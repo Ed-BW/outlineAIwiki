@@ -66,7 +66,22 @@ function Contents() {
               level={heading.level - headingAdjustment}
               active={activeSlug === heading.id}
             >
-              <Link href={`#${heading.id}`}>{heading.title}</Link>
+              <Link
+                href={`#${heading.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(heading.id);
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                    window.history.pushState(null, "", `#${heading.id}`);
+                  }
+                }}
+              >
+                {heading.title}
+              </Link>
             </ListItem>
           ))}
       </List>
