@@ -1,15 +1,25 @@
 # TORTUS
 
-<div class="infobox">
+<div class="infobox modern">
   <div class="infobox-header">
-    <h2 class="infobox-title">TORTUS</h2>
-    <p class="infobox-subtitle">Clinical AI Assistant</p>
-    <span class="infobox-status-live">Live</span>
-    <p class="infobox-founder">TORTUS Ltd</p>
+    <div class="infobox-title-section">
+      <h2 class="infobox-title">TORTUS</h2>
+      <p class="infobox-subtitle">Clinical AI Assistant</p>
+    </div>
+    <div class="infobox-meta">
+      <span class="infobox-meta-item status-live">Live</span>
+      <span class="infobox-meta-item">Founded 2022</span>
+      <span class="infobox-meta-item">TORTUS Ltd</span>
+    </div>
   </div>
-  <div class="infobox-columns">
+  <div class="infobox-body">
     <div class="infobox-left-column">
       <img src="https://via.placeholder.com/300x200?text=TORTUS+Screenshot" alt="TORTUS Screenshot" class="infobox-image" />
+      <div class="infobox-links">
+        <a href="https://tortus.ai/">Website</a>
+        <a href="https://nhsaccelerator.com/innovations/tortus-ai/">NHS Profile</a>
+        <a href="mailto:info@tortus.ai">Contact</a>
+      </div>
     </div>
     <div class="infobox-right-column">
       <p class="infobox-description">
@@ -38,11 +48,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="infobox-links">
-    <a href="https://tortus.ai/">Website</a> • 
-    <a href="https://nhsaccelerator.com/innovations/tortus-ai/">NHS Profile</a> • 
-    <a href="mailto:info@tortus.ai">Contact</a>
   </div>
 </div>
 

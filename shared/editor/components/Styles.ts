@@ -2074,6 +2074,115 @@ del[data-operation-index] {
   }
 }
 
+/* Radical Redesign for Modern Infobox */
+.infobox.modern {
+  border: 1px solid ${props.theme.divider};
+  border-radius: 8px;
+  margin: 1em 0;
+  float: none;
+  width: 100%;
+  background: ${props.theme.backgroundSecondary};
+}
+
+.infobox.modern .infobox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid ${props.theme.divider};
+  flex-wrap: wrap;
+}
+
+.infobox.modern .infobox-title-section {
+  flex-grow: 1;
+}
+
+.infobox.modern .infobox-title {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.infobox.modern .infobox-subtitle {
+  font-size: 1.1em;
+  color: ${props.theme.textSecondary};
+  margin: 4px 0 0;
+}
+
+.infobox.modern .infobox-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9em;
+  color: ${props.theme.textSecondary};
+}
+
+.infobox.modern .infobox-meta-item.status-live {
+  background-color: ${props.theme.green};
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.infobox.modern .infobox-body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  padding: 24px;
+}
+
+.infobox.modern .infobox-image {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.infobox.modern .infobox-links {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infobox.modern .infobox-links a {
+  font-weight: 500;
+  display: block;
+}
+
+.infobox.modern .infobox-description {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.infobox.modern .infobox-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.infobox.modern .infobox-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.infobox.modern .infobox-detail-label {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: ${props.theme.textSecondary};
+  margin-bottom: 4px;
+}
+
+.infobox.modern .infobox-detail-value {
+  font-size: 0.95em;
+}
+
+@media (max-width: 768px) {
+  .infobox.modern .infobox-body {
+    grid-template-columns: 1fr;
+  }
+}
+
 .infobox-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
