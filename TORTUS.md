@@ -1,27 +1,46 @@
 # TORTUS
 
 <div class="infobox">
-
-| TORTUS |
-|--------|
-| ![Screenshot placeholder - Replace with actual screenshot](https://via.placeholder.com/300x200?text=TORTUS+Screenshot) |
-| **Type:** Clinical AI Assistant |
-| **Developer:** TORTUS Ltd |
-| **Status:** 🟢 Live |
-| **Founded:** 2022 |
-| **AI Model:** Proprietary LLM (O.S.L.E.R.) |
-| **Platform:** O.S.L.E.R. |
-| **Open Source:** No |
-| **Access:** Commercial |
-| **Procurement:** NHS Framework, Direct Contact |
-| **Trial:** Contact for pricing |
-| **Primary Use:** Clinical documentation automation |
-| **Sector:** Healthcare |
-| **🔗 Links** |
-| • [Website](https://tortus.ai/) |
-| • [NHS Innovation Profile](https://nhsaccelerator.com/innovations/tortus-ai/) |
-| • [Contact](mailto:info@tortus.ai) |
-
+  <div class="infobox-columns">
+    <div class="infobox-left-column">
+      <div class="infobox-header">
+        <h2 class="infobox-title">TORTUS</h2>
+        <p class="infobox-subtitle">Clinical AI Assistant</p>
+        <span class="infobox-status-live">Live</span>
+        <p class="infobox-founder">TORTUS Ltd</p>
+      </div>
+      <img src="https://via.placeholder.com/300x200?text=TORTUS+Screenshot" alt="TORTUS Screenshot" class="infobox-image" />
+    </div>
+    <div class="infobox-right-column">
+      <div class="infobox-details">
+        <div class="infobox-detail-item">
+          <span class="infobox-detail-label">Sector</span>
+          <span class="infobox-detail-value">Healthcare</span>
+        </div>
+        <div class="infobox-detail-item">
+          <span class="infobox-detail-label">Primary Use</span>
+          <span class="infobox-detail-value">Clinical documentation automation</span>
+        </div>
+        <div class="infobox-detail-item">
+          <span class="infobox-detail-label">Platform Access</span>
+          <span class="infobox-detail-value">Commercial</span>
+        </div>
+        <div class="infobox-detail-item">
+          <span class="infobox-detail-label">Open Source</span>
+          <span class="infobox-detail-value">No</span>
+        </div>
+        <div class="infobox-detail-item">
+          <span class="infobox-detail-label">Procurement</span>
+          <span class="infobox-detail-value">NHS Framework, Direct</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="infobox-links">
+    <a href="https://tortus.ai/">Website</a> • 
+    <a href="https://nhsaccelerator.com/innovations/tortus-ai/">NHS Profile</a> • 
+    <a href="mailto:info@tortus.ai">Contact</a>
+  </div>
 </div>
 
 **TORTUS** is an artificial intelligence tool designed to automate clinical documentation in healthcare settings. Developed for use at Great Ormond Street Hospital for Children NHS Foundation Trust (GOSH), TORTUS aims to increase face-to-face time between clinicians and patients by automating the drafting of clinic notes and letters.^[1]^

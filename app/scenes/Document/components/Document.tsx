@@ -617,7 +617,7 @@ class DocumentScene extends React.Component<Props> {
                               sharedTree={this.props.sharedTree}
                             />
                           </ReferencesWrapper>
-                        ) : !revision ? (
+                        ) : !revision && document.title.toLowerCase() !== "tortus" ? (
                           <ReferencesWrapper>
                             <References document={document} />
                           </ReferencesWrapper>

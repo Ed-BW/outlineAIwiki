@@ -2074,6 +2074,83 @@ del[data-operation-index] {
   }
 }
 
+.infobox-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.infobox-left-column .infobox-image {
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.infobox-header .infobox-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.infobox-header .infobox-subtitle {
+  font-size: 1em;
+  font-weight: 500;
+  color: ${props.theme.textSecondary};
+  margin: 4px 0 8px;
+}
+
+.infobox-header .infobox-status-live {
+  display: inline-block;
+  background-color: ${props.theme.green};
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.infobox-header .infobox-founder {
+  font-size: 0.9em;
+  color: ${props.theme.textSecondary};
+  margin-top: 8px;
+}
+
+.infobox-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infobox-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.infobox-detail-label {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: ${props.theme.textSecondary};
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.infobox-detail-value {
+  font-size: 0.9em;
+}
+
+.infobox-links {
+  padding: 12px 16px;
+  border-top: 1px solid ${props.theme.divider};
+  text-align: center;
+}
+
+.infobox-links a {
+  margin: 0 8px;
+  font-weight: 500;
+}
+
+
 @media print {
   .placeholder::before,
   .block-menu-trigger,
