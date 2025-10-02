@@ -2082,7 +2082,6 @@ del[data-operation-index] {
 }
 
 .infobox-left-column .infobox-image {
-  margin-top: 16px;
   border-radius: 4px;
 }
 
@@ -2114,6 +2113,11 @@ del[data-operation-index] {
   font-size: 0.9em;
   color: ${props.theme.textSecondary};
   margin-top: 8px;
+}
+
+.infobox-description {
+  font-size: 0.9em;
+  margin-bottom: 16px;
 }
 
 .infobox-details {

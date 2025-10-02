@@ -1,17 +1,20 @@
 # TORTUS
 
 <div class="infobox">
+  <div class="infobox-header">
+    <h2 class="infobox-title">TORTUS</h2>
+    <p class="infobox-subtitle">Clinical AI Assistant</p>
+    <span class="infobox-status-live">Live</span>
+    <p class="infobox-founder">TORTUS Ltd</p>
+  </div>
   <div class="infobox-columns">
     <div class="infobox-left-column">
-      <div class="infobox-header">
-        <h2 class="infobox-title">TORTUS</h2>
-        <p class="infobox-subtitle">Clinical AI Assistant</p>
-        <span class="infobox-status-live">Live</span>
-        <p class="infobox-founder">TORTUS Ltd</p>
-      </div>
       <img src="https://via.placeholder.com/300x200?text=TORTUS+Screenshot" alt="TORTUS Screenshot" class="infobox-image" />
     </div>
     <div class="infobox-right-column">
+      <p class="infobox-description">
+        An artificial intelligence tool designed to automate clinical documentation in healthcare settings to increase face-to-face time between clinicians and patients.
+      </p>
       <div class="infobox-details">
         <div class="infobox-detail-item">
           <span class="infobox-detail-label">Sector</span>

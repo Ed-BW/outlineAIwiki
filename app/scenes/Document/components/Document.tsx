@@ -576,8 +576,6 @@ class DocumentScene extends React.Component<Props> {
                     >
                       <Notices document={document} readOnly={readOnly} />
 
-                      {!revision && <Hero document={document} />}
-
                       {showContents && (
                         <PrintContentsContainer>
                           <Contents />
